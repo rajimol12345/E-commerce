@@ -19,6 +19,7 @@ import CategoryProducts from './pages/CategoryProducts';
 import Deals from './pages/Deals';
 import WhatsNew from './pages/WhatsNew';
 import Delivery from './pages/Delivery';
+import Dashboard from './pages/Dashboard';
 import Order from './pages/Order';
 
 const App = () => {
@@ -36,6 +37,7 @@ const App = () => {
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/shipping" element={<Shipping />} />
               <Route path="/payment" element={<Payment />} />
               <Route path="/placeorder" element={<PlaceOrder />} />

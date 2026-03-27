@@ -32,7 +32,8 @@ const Login = () => {
             if (data.role === 'admin') {
                 window.location.href = 'https://e-commerce-dashboard-4eny.onrender.com/admin/dashboard';
             } else {
-                navigate(redirect);
+                console.log('Login success:', data);
+                navigate('/dashboard');
             }
         } catch (error) {
             console.error('Login error:', error);

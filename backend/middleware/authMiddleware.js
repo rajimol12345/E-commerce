@@ -57,10 +57,14 @@ const protectAdmin = asyncHandler(async (req, res, next) => {
             token = req.headers.authorization.split(' ')[1];
             const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-            // Get user from the User model (unified management)
-            req.user = await User.findById(decoded.id).select('-password');
+            // Get user from the User model or Admin model
+            let user = await User.findById(decoded.id).select('-password');
+            if (!user) {
+                user = await Admin.findById(decoded.id).select('-password');
+            }
+            req.user = user;
 
-            if (req.user && req.user.role === 'admin') {
+            if (req.user && (req.user.role === 'admin' || req.user.isAdmin)) {
                 next();
             } else {
                 res.status(401);
