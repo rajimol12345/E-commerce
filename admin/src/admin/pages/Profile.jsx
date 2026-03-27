@@ -88,7 +88,7 @@ const Profile = () => {
                                 <div style={{ width: '100px', height: '100px', borderRadius: '50%', overflow: 'hidden', backgroundColor: '#e2e8f0', position: 'relative' }}>
                                     {image ? (
                                         <img
-                                            src={image.startsWith('http') ? image : `http://localhost:5000${image}`}
+                                            src={image.startsWith('http') ? image : `https://e-commerce-jh2x.onrender.com${image}`}
                                             alt="Profile"
                                             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                                         />

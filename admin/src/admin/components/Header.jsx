@@ -31,7 +31,7 @@ const Header = ({ title, user }) => {
                     <div className="profile-img">
                         {userInfo.image ? (
                             <img
-                                src={userInfo.image.startsWith('http') ? userInfo.image : `http://localhost:5000${userInfo.image}`}
+                                src={userInfo.image.startsWith('http') ? userInfo.image : `https://e-commerce-jh2x.onrender.com${userInfo.image}`}
                                 alt="Profile"
                             />
                         ) : (

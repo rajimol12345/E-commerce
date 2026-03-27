@@ -128,7 +128,7 @@ const Cart = () => {
                                         overflow: 'hidden', flexShrink: 0
                                     }}>
                                         <img
-                                            src={item.image?.startsWith('http') ? item.image : `http://localhost:5000${item.image}`}
+                                            src={item.image?.startsWith('http') ? item.image : `https://e-commerce-jh2x.onrender.com${item.image}`}
                                             alt={item.name}
                                             style={{ maxWidth: '80%', maxHeight: '80%', objectFit: 'contain' }}
                                         />

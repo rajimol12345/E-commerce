@@ -131,7 +131,7 @@ const PlaceOrder = () => {
                                     <div key={index} style={{ display: 'flex', alignItems: 'center', gap: '16px', paddingBottom: '16px', borderBottom: index !== cartItems.length - 1 ? '1px solid #F3F4F6' : 'none' }}>
                                         <div style={{ width: '60px', height: '60px', borderRadius: '12px', overflow: 'hidden', backgroundColor: '#F9FAFB', flexShrink: 0 }}>
                                             <img
-                                                src={item.image?.startsWith('http') ? item.image : `http://localhost:5000${item.image}`}
+                                                src={item.image?.startsWith('http') ? item.image : `https://e-commerce-jh2x.onrender.com${item.image}`}
                                                 alt={item.name}
                                                 style={{ width: '100%', height: '100%', objectFit: 'contain' }}
                                             />

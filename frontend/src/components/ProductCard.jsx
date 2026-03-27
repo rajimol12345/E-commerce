@@ -88,7 +88,7 @@ const ProductCard = ({ product }) => {
             }}>
                 <Link to={`/product/${product._id}`} style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <img
-                        src={product.image?.startsWith('http') ? product.image : `http://localhost:5000${product.image}`}
+                        src={product.image?.startsWith('http') ? product.image : `https://e-commerce-jh2x.onrender.com${product.image}`}
                         alt={product.name}
                         style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }}
                     />

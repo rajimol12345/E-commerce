@@ -128,7 +128,7 @@ const WeeklyPopular = () => {
                             {/* Image */}
                             <Link to={`/product/${product._id}`} style={{ width: '130px', height: '130px', backgroundColor: 'white', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '15px' }}>
                                 <img
-                                    src={product.image?.startsWith('http') ? product.image : `http://localhost:5000${product.image}`}
+                                    src={product.image?.startsWith('http') ? product.image : `https://e-commerce-jh2x.onrender.com${product.image}`}
                                     alt={product.name}
                                     style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }}
                                 />

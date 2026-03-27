@@ -68,7 +68,7 @@ const ProductDetails = () => {
                         }}
                     >
                         <motion.img
-                            src={product.image?.startsWith('http') ? product.image : `http://localhost:5000${product.image}`}
+                            src={product.image?.startsWith('http') ? product.image : `https://e-commerce-jh2x.onrender.com${product.image}`}
                             alt={product.name}
                             initial={{ scale: 0.9, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}

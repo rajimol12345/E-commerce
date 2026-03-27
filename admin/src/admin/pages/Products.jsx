@@ -72,7 +72,7 @@ const Products = () => {
         {
             header: 'Image',
             accessor: 'image',
-            render: (row) => row.image && <img src={row.image.startsWith('http') ? row.image : `http://localhost:5000${row.image}`} alt={row.name} style={{ width: '40px', height: '40px', objectFit: 'cover', borderRadius: '4px' }} />
+            render: (row) => row.image && <img src={row.image.startsWith('http') ? row.image : `https://e-commerce-jh2x.onrender.com${row.image}`} alt={row.name} style={{ width: '40px', height: '40px', objectFit: 'cover', borderRadius: '4px' }} />
         },
         { header: 'Name', accessor: 'name' },
         {

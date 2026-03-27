@@ -89,7 +89,7 @@ const Wishlist = () => {
 
                                 <div style={{ height: '180px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px', backgroundColor: '#F9FAFB', borderRadius: '16px', padding: '16px' }}>
                                     <img
-                                        src={product.image?.startsWith('http') ? product.image : `http://localhost:5000${product.image}`}
+                                        src={product.image?.startsWith('http') ? product.image : `https://e-commerce-jh2x.onrender.com${product.image}`}
                                         alt={product.name}
                                         style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }}
                                     />

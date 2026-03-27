@@ -101,7 +101,7 @@ const Categories = () => {
     };
 
     const columns = [
-        { header: 'Image', accessor: 'image', render: (row) => row.image ? <img src={row.image.startsWith('http') ? row.image : `http://localhost:5000${row.image}`} alt={row.name} style={{ width: '40px', height: '40px', objectFit: 'cover', borderRadius: '4px' }} /> : 'No Image' },
+        { header: 'Image', accessor: 'image', render: (row) => row.image ? <img src={row.image.startsWith('http') ? row.image : `https://e-commerce-jh2x.onrender.com${row.image}`} alt={row.name} style={{ width: '40px', height: '40px', objectFit: 'cover', borderRadius: '4px' }} /> : 'No Image' },
         { header: 'Name', accessor: 'name' },
         { header: 'ID', accessor: '_id' },
     ];
@@ -162,7 +162,7 @@ const Categories = () => {
                             {image && (
                                 <div style={{ marginTop: '10px' }}>
                                     <img
-                                        src={image.startsWith('http') ? image : `http://localhost:5000${image}`}
+                                        src={image.startsWith('http') ? image : `https://e-commerce-jh2x.onrender.com${image}`}
                                         alt="Preview"
                                         style={{ height: '60px', borderRadius: '4px', border: '1px solid #e2e8f0' }}
                                         onError={(e) => {

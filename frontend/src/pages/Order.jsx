@@ -208,7 +208,7 @@ const Order = () => {
                                 {order.orderItems.map((item, index) => (
                                     <div key={index} style={{ display: 'flex', alignItems: 'center', gap: '20px', paddingBottom: '20px', borderBottom: index < order.orderItems.length - 1 ? '1px solid #F4F5F6' : 'none' }}>
                                         <img
-                                            src={item.image?.startsWith('http') ? item.image : `http://localhost:5000${item.image}`}
+                                            src={item.image?.startsWith('http') ? item.image : `https://e-commerce-jh2x.onrender.com${item.image}`}
                                             alt={item.name}
                                             style={{ width: '80px', height: '80px', objectFit: 'contain', backgroundColor: '#F4F5F6', borderRadius: '16px' }}
                                         />

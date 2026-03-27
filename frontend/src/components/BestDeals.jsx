@@ -156,7 +156,7 @@ const BestDeals = () => {
                                     overflow: 'hidden'
                                 }}>
                                     <img
-                                        src={product.image?.startsWith('http') ? product.image : `http://localhost:5000${product.image}`}
+                                        src={product.image?.startsWith('http') ? product.image : `https://e-commerce-jh2x.onrender.com${product.image}`}
                                         alt={product.name}
                                         style={{
                                             maxWidth: '100%',

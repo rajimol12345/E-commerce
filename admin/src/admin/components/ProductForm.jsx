@@ -153,7 +153,7 @@ const ProductForm = ({ product, onSuccess, onClose }) => {
                     </div>
                     {formData.image && (
                         <img
-                            src={formData.image.startsWith('http') ? formData.image : `http://localhost:5000${formData.image}`}
+                            src={formData.image.startsWith('http') ? formData.image : `https://e-commerce-jh2x.onrender.com${formData.image}`}
                             alt="Preview"
                             style={{ height: '80px', borderRadius: '4px', border: '1px solid #e2e8f0', marginTop: '10px' }}
                         />
