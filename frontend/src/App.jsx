@@ -1,0 +1,59 @@
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import { PayPalScriptProvider } from '@paypal/react-paypal-js';
+import Home from './pages/Home';
+import Shop from './pages/Shop';
+import ProductDetails from './pages/ProductDetails';
+import Cart from './pages/Cart';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import Profile from './pages/Profile';
+
+import Shipping from './pages/Shipping';
+import Payment from './pages/Payment';
+import PlaceOrder from './pages/PlaceOrder';
+import Wishlist from './pages/Wishlist';
+import CategoryProducts from './pages/CategoryProducts';
+import Deals from './pages/Deals';
+import WhatsNew from './pages/WhatsNew';
+import Delivery from './pages/Delivery';
+import Order from './pages/Order';
+
+const App = () => {
+  return (
+    <Router>
+      <PayPalScriptProvider options={{ 'client-id': 'sb' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+          <Header />
+          <main style={{ flex: 1 }}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/shop" element={<Shop />} />
+              <Route path="/product/:id" element={<ProductDetails />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/shipping" element={<Shipping />} />
+              <Route path="/payment" element={<Payment />} />
+              <Route path="/placeorder" element={<PlaceOrder />} />
+              <Route path="/wishlist" element={<Wishlist />} />
+              <Route path="/category/:name" element={<CategoryProducts />} />
+              <Route path="/deals" element={<Deals />} />
+              <Route path="/whats-new" element={<WhatsNew />} />
+              <Route path="/delivery" element={<Delivery />} />
+              <Route path="/order/:id" element={<Order />} />
+              {/* Define other routes */}
+              <Route path="*" element={<div className="container section">404 - Page Not Found</div>} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </PayPalScriptProvider>
+    </Router>
+  );
+};
+
+export default App;
