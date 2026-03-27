@@ -20,20 +20,28 @@ const Login = () => {
     const submitHandler = async (e) => {
         e.preventDefault();
         setLoading(true);
+        console.log('Admin login attempt for:', email);
+        
         try {
             // Updated endpoint to use UNIFIED User Auth
-            const { data } = await api.post('/users/login', { email, password });
+            const { data } = await api.post('/users/login', { email, password }, {
+                headers: { 'Content-Type': 'application/json' }
+            });
+            console.log('Admin login response:', data);
 
             // detailed check for admin role
             if (data.role === 'admin' || data.isAdmin) {
                 localStorage.setItem('userInfo', JSON.stringify(data));
+                if (data.token) {
+                    localStorage.setItem('token', data.token);
+                }
                 toast.success('Welcome back, Admin!');
                 navigate('/dashboard');
             } else {
                 toast.error('Access Denied: Admins Only');
             }
         } catch (error) {
-            console.error(error);
+            console.error('Admin login error:', error);
             const msg = error.response?.data?.message || 'Invalid Email or Password';
             toast.error(msg);
         } finally {

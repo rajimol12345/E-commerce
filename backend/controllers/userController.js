@@ -7,10 +7,17 @@ import User from '../models/User.js';
 // @access  Public
 const authUser = asyncHandler(async (req, res) => {
     const { email, password } = req.body;
+    console.log('Login attempt for:', email);
+
+    if (!email || !password) {
+        res.status(400);
+        throw new Error('Please provide email and password');
+    }
 
     const user = await User.findOne({ email });
 
     if (user && (await user.matchPassword(password))) {
+        console.log('Login successful for:', email);
         res.json({
             _id: user._id,
             name: user.name,
@@ -20,8 +27,8 @@ const authUser = asyncHandler(async (req, res) => {
             token: generateToken(user._id),
         });
     } else {
-        res.status(401);
-        throw new Error('Invalid email or password');
+        console.log('Login failed: Invalid credentials for', email);
+        res.status(401).json({ message: 'Invalid email or password' });
     }
 });
 

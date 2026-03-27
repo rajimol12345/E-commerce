@@ -16,17 +16,26 @@ const Login = () => {
     const submitHandler = async (e) => {
         e.preventDefault();
         setError(null);
+        console.log('Attempting login for:', email);
 
         try {
-            const { data } = await api.post('/users/login', { email, password });
+            const { data } = await api.post('/users/login', { email, password }, {
+                headers: { 'Content-Type': 'application/json' }
+            });
+            console.log('Login response data:', data);
+            
             localStorage.setItem('userInfo', JSON.stringify(data));
+            if (data.token) {
+                localStorage.setItem('token', data.token); // Store token separately as well if needed
+            }
 
             if (data.role === 'admin') {
-                window.location.href = 'http://localhost:5173/admin/dashboard';
+                window.location.href = 'https://e-commerce-dashboard-4eny.onrender.com/admin/dashboard';
             } else {
                 navigate(redirect);
             }
         } catch (error) {
+            console.error('Login error:', error);
             setError(error.response?.data?.message || 'Invalid email or password');
         }
     };
