@@ -36,7 +36,7 @@ const Login = () => {
                     localStorage.setItem('token', data.token);
                 }
                 toast.success('Welcome back, Admin!');
-                navigate('/dashboard');
+                navigate('/admin/dashboard');
             } else {
                 toast.error('Access Denied: Admins Only');
             }
