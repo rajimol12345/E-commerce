@@ -32,9 +32,10 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 const allowedOrigins = [
-  'https://e-commerce-1-tjm0.onrender.com', // Frontend
-  'http://localhost:3000',                  // Local Dev (Frontend)
-  'http://localhost:5173',                  // Local Dev (Vite)
+  'https://e-commerce-1-tjm0.onrender.com',      // Main Frontend
+  'https://e-commerce-dashboard-4eny.onrender.com', // Admin Dashboard
+  'http://localhost:3000',                       // Local Dev (Frontend)
+  'http://localhost:5173',                       // Local Dev (Vite)
 ];
 
 app.use(cors({
