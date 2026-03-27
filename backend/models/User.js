@@ -19,6 +19,7 @@ const userSchema = mongoose.Schema({
     },
     image: { type: String },
     role: { type: String, required: true, default: 'user' },
+    isAdmin: { type: Boolean, required: true, default: false },
 }, {
     timestamps: true,
 });

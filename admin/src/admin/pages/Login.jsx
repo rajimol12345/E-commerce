@@ -23,8 +23,8 @@ const Login = () => {
         console.log('Admin login attempt for:', email);
         
         try {
-            // Updated endpoint to use UNIFIED User Auth
-            const { data } = await api.post('/users/login', { email, password }, {
+            // Updated endpoint to use Admin Auth
+            const { data } = await api.post('/admins/login', { email, password }, {
                 headers: { 'Content-Type': 'application/json' }
             });
             console.log('Admin login response:', data);
