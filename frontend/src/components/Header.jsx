@@ -33,12 +33,12 @@ const Header = () => {
     };
 
     const categories = [
-        { name: 'Furniture', count: '240 Item Available', img: 'https://cdn.prod.website-files.com/63e857eaeaf853471d5335ff/63ec6052dc39b839500c1f8a_Rectangle%201436.png' },
-        { name: 'Hand Bag', count: '240 Item Available', img: 'https://cdn.prod.website-files.com/63e857eaeaf853471d5335ff/63ec605386e48004f02ee6a8_Rectangle%201436-4.png' },
-        { name: 'Shoe', count: '240 Item Available', img: 'https://cdn.prod.website-files.com/63e857eaeaf853471d5335ff/63ec6052f0ed215b864af96e_Rectangle%201436-1.png' },
-        { name: 'Headphone', count: '240 Item Available', img: 'https://cdn.prod.website-files.com/63e857eaeaf853471d5335ff/63ec6053e5b15cfafd550cbb_Rectangle%201436-3.png' },
-        { name: 'Laptop', count: '240 Item Available', img: 'https://cdn.prod.website-files.com/63e857eaeaf853471d5335ff/63ec6052f3741a4f87af0f6d_Rectangle%201436-2.png' },
-        { name: 'Book', count: '240 Item Available', img: 'https://cdn.prod.website-files.com/63e857eaeaf853471d5335ff/63ec622235f3f730c0de8c3f_Rectangle%201436-5.png' }
+        { name: 'Furniture', count: '240 Item Available', img: 'https://e-commerce-jh2x.onrender.com/images/Cat-Furniture.png' },
+        { name: 'Hand Bag', count: '240 Item Available', img: 'https://e-commerce-jh2x.onrender.com/images/Cat-HandBag.png' },
+        { name: 'Shoe', count: '240 Item Available', img: 'https://e-commerce-jh2x.onrender.com/images/Cat-Sneakers.png' },
+        { name: 'Headphone', count: '240 Item Available', img: 'https://e-commerce-jh2x.onrender.com/images/Cat-Tech.png' },
+        { name: 'Laptop', count: '240 Item Available', img: 'https://e-commerce-jh2x.onrender.com/images/Cat-Tech.png' },
+        { name: 'Book', count: '240 Item Available', img: 'https://e-commerce-jh2x.onrender.com/images/Cat-Books.png' }
     ];
 
     return (

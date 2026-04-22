@@ -1,7 +1,7 @@
 const products = [
     {
         name: 'HomePod mini',
-        image: 'https://cdn.prod.website-files.com/63e857eaeaf853471d5335ff/63e8c4e4a7c200ed43ec5fe2_homepod-min.png',
+        image: 'https://e-commerce-jh2x.onrender.com/images/Deal-HomePod.png',
         description: 'Table with air purifier, stained veneer/black',
         brand: 'Apple',
         category: 'Tech',
@@ -12,7 +12,7 @@ const products = [
     },
     {
         name: 'Instax Mini 9',
-        image: 'https://cdn.prod.website-files.com/63e857eaeaf853471d5335ff/63e8c4e4037f3b456aaf03e2_static-camera-min.png',
+        image: 'https://e-commerce-jh2x.onrender.com/images/Deal-Instax.png',
         description: 'Selfie mirror and close-up lens adapter for perfect selfies',
         brand: 'Fujifilm',
         category: 'Tech',
@@ -23,7 +23,7 @@ const products = [
     },
     {
         name: 'Base Camp Duffel M',
-        image: 'https://cdn.prod.website-files.com/63e857eaeaf853471d5335ff/63e8c4e454ac2e3d927cb532_duffel-bag-min.png',
+        image: 'https://e-commerce-jh2x.onrender.com/images/Deal-Duffel.png',
         description: 'The legendary expedition duffel is new and improved',
         brand: 'The North Face',
         category: 'Travel',
@@ -34,7 +34,7 @@ const products = [
     },
     {
         name: 'Tot e Medium',
-        image: 'https://cdn.prod.website-files.com/63e857eaeaf853471d5335ff/63e8c4e4ed4a27073e5a5b17_bag-min.png',
+        image: 'https://e-commerce-jh2x.onrender.com/images/Deal-Tote.png',
         description: 'A versatile tote bag for your daily needs',
         brand: 'Generic',
         category: 'Hand Bag',
@@ -45,7 +45,7 @@ const products = [
     },
     {
         name: 'AirPods Max',
-        image: 'https://cdn.prod.website-files.com/63e857eaeaf853471d5335ff/63e8c4e4ed4a274bc35a5b16_headphone-min.png',
+        image: 'https://e-commerce-jh2x.onrender.com/images/Deal-Watch.png',
         description: 'Experience the high-fidelity audio journey',
         brand: 'Apple',
         category: 'Headphone',
@@ -56,7 +56,7 @@ const products = [
     },
     {
         name: 'Flower Laptop Sleeve',
-        image: 'https://cdn.prod.website-files.com/63e857eaeaf853471d5335ff/63e8bc70da0843ca203258ee_63e857eaeaf853d9e45336d3_Rectangle%201460-min.png',
+        image: 'https://e-commerce-jh2x.onrender.com/images/Tab-FlowerSleeve.png',
         description: 'Stylish protection for your laptop with floral design',
         brand: 'Generic',
         category: 'Accessories',
@@ -67,7 +67,7 @@ const products = [
     },
     {
         name: 'Supreme Water Bottle',
-        image: 'https://cdn.prod.website-files.com/63e857eaeaf853471d5335ff/63e8bc7038db46b60babf919_63e857eaeaf853118d5336d4_Rectangle%201459-min.png',
+        image: 'https://e-commerce-jh2x.onrender.com/images/Tab-WaterPot.png',
         description: 'Stay hydrated with style with this iconic bottle',
         brand: 'Supreme',
         category: 'Accessories',
@@ -78,7 +78,7 @@ const products = [
     },
     {
         name: 'Laptop sleeve MacBook',
-        image: 'https://cdn.prod.website-files.com/63e857eaeaf853471d5335ff/63e8bc70830fd7129598444a_63e857eaeaf853724e5336e3_Rectangle%201458-min.png',
+        image: 'https://e-commerce-jh2x.onrender.com/images/Tab-LaptopSleeve.png',
         description: 'Premium leather sleeve for MacBook protection',
         brand: 'Generic',
         category: 'Laptop',
@@ -89,7 +89,7 @@ const products = [
     },
     {
         name: 'Gaming Headphone',
-        image: 'https://cdn.prod.website-files.com/63e857eaeaf853471d5335ff/63e8c4e54b76914b262f2448_headphone-min.png',
+        image: 'https://e-commerce-jh2x.onrender.com/images/Deal-Headphone.png',
         description: 'Immersive audio experience for competitive gaming',
         brand: 'Logitech',
         category: 'Headphone',
