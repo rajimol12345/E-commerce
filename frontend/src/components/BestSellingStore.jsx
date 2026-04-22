@@ -67,7 +67,7 @@ const BestSellingStore = () => {
 
                 <div style={{
                     display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', // Responsive 4 columns
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', // Responsive 4 columns
                     gap: '32px'
                 }}>
                     {stores.map(store => (
