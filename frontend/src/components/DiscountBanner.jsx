@@ -1,4 +1,5 @@
 import React from 'react';
+import servicePayment from '../assets/service-payment.png';
 
 const DiscountBanner = () => {
     return (
@@ -18,17 +19,12 @@ const DiscountBanner = () => {
                         </button>
                     </div>
 
-                    {/* Stacked Cards Images */}
+                    {/* Single Credit Card Image */}
                     <div className="discount-banner-images">
                         <img
-                            src="https://cdn.prod.website-files.com/63e857eaeaf853471d5335ff/63e8c4e4c21faa5e03c209c5_Furniture%20Village-min.png"
-                            alt="Card 1"
-                            className="discount-card card-1"
-                        />
-                        <img
-                            src="https://cdn.prod.website-files.com/63e857eaeaf853471d5335ff/63e8c4e4c21faa5e03c209c5_Furniture%20Village-min.png"
-                            alt="Card 2"
-                            className="discount-card card-2"
+                            src={servicePayment}
+                            alt="Credit Card"
+                            className="discount-card-img"
                         />
                     </div>
                 </div>
@@ -76,24 +72,28 @@ const DiscountBanner = () => {
                 }
                 .discount-banner-images {
                     position: relative;
-                    width: 380px;
+                    width: 450px;
                     height: 300px;
                     display: flex;
                     align-items: center;
-                    justify-content: center;
+                    justify-content: flex-end;
                 }
-                .discount-card {
-                    position: absolute;
-                    width: 220px;
-                    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
-                    border-radius: 12px;
+                .discount-card-img {
+                    width: 100%;
+                    height: auto;
+                    max-height: 350px;
+                    object-fit: contain;
+                    filter: drop-shadow(0 15px 30px rgba(0,0,0,0.1));
+                    transition: transform 0.3s ease;
                 }
-                .card-1 { z-index: 3; transform: rotate(-5deg); }
-                .card-2 { z-index: 2; transform: rotate(10deg) translate(30px, 20px); }
+                .discount-card-img:hover {
+                    transform: scale(1.05);
+                }
 
                 @media (max-width: 1024px) {
                     .discount-banner-wrapper { padding: 40px; }
                     .discount-banner-title { font-size: 2.5rem; }
+                    .discount-banner-images { width: 350px; }
                 }
 
                 @media (max-width: 768px) {
@@ -105,13 +105,20 @@ const DiscountBanner = () => {
                     .discount-banner-images {
                         margin-top: 40px;
                         width: 100%;
-                        height: 250px;
+                        height: auto;
+                        justify-content: center;
                     }
-                    .discount-card {
-                        width: 180px;
+                    .discount-card-img {
+                        max-width: 300px;
                     }
                 }
             `}</style>
+        </section>
+    );
+};
+
+export default DiscountBanner;
+
         </section>
     );
 };
