@@ -118,9 +118,3 @@ const DiscountBanner = () => {
 };
 
 export default DiscountBanner;
-
-        </section>
-    );
-};
-
-export default DiscountBanner;
