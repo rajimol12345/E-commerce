@@ -88,7 +88,7 @@ const BestDeals = () => {
                         <div
                             key={product._id}
                             style={{
-                                minWidth: '320px',
+                                minWidth: '280px',
                                 backgroundColor: '#F4F5F6',
                                 borderRadius: '16px',
                                 padding: '24px',

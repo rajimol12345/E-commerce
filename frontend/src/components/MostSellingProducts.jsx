@@ -70,7 +70,7 @@ const MostSellingProducts = () => {
                     style={{
                         display: 'grid',
                         gridAutoFlow: 'column',
-                        gridAutoColumns: 'minmax(380px, 1fr)',
+                        gridAutoColumns: 'minmax(280px, 1fr)',
                         gap: '32px',
                         overflowX: 'auto',
                         paddingBottom: '24px',
