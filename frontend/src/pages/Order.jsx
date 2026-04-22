@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { FaTruck, FaCreditCard, FaPaypal, FaCheckCircle, FaClock } from 'react-icons/fa';
 import api from '../utils/api';
 import { motion, AnimatePresence } from 'framer-motion';
 import { PayPalButtons, usePayPalScriptReducer } from '@paypal/react-paypal-js';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import { toast } from 'react-toastify';
 
 // Stripe Checkout Form Component
 const StripeCheckoutForm = ({ orderId, amount, onPaid }) => {
@@ -13,6 +14,7 @@ const StripeCheckoutForm = ({ orderId, amount, onPaid }) => {
     const elements = useElements();
     const [error, setError] = useState(null);
     const [processing, setProcessing] = useState(false);
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -43,7 +45,8 @@ const StripeCheckoutForm = ({ orderId, amount, onPaid }) => {
                         email_address: result.paymentIntent.receipt_email || 'stripe@example.com'
                     };
                     await api.put(`/orders/${orderId}/pay`, paymentResult);
-                    onPaid();
+                    toast.success('Payment Successful!');
+                    navigate(`/order-success/${orderId}`);
                 }
             }
         } catch (err) {
@@ -80,6 +83,7 @@ const StripeCheckoutForm = ({ orderId, amount, onPaid }) => {
 
 const Order = () => {
     const { id: orderId } = useParams();
+    const navigate = useNavigate();
     const [order, setOrder] = useState(null);
     const [loading, setLoading] = useState(true);
     const [stripePromise, setStripePromise] = useState(null);
@@ -133,9 +137,11 @@ const Order = () => {
                 email_address: details.payer.email_address,
             };
             await api.put(`/orders/${orderId}/pay`, paymentResult);
-            fetchOrder();
+            toast.success('Payment Successful!');
+            navigate(`/order-success/${orderId}`);
         } catch (error) {
             console.error('Error updating order to paid:', error);
+            toast.error('Payment failed');
         }
     };
 

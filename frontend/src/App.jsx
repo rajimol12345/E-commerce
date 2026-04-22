@@ -23,6 +23,7 @@ import WhatsNew from './pages/WhatsNew';
 import Delivery from './pages/Delivery';
 import Dashboard from './pages/Dashboard';
 import Order from './pages/Order';
+import OrderSuccess from './pages/OrderSuccess';
 
 const App = () => {
   return (
@@ -50,6 +51,7 @@ const App = () => {
               <Route path="/whats-new" element={<WhatsNew />} />
               <Route path="/delivery" element={<Delivery />} />
               <Route path="/order/:id" element={<Order />} />
+              <Route path="/order-success/:id" element={<OrderSuccess />} />
               {/* Define other routes */}
               <Route path="*" element={<div className="container section">404 - Page Not Found</div>} />
             </Routes>

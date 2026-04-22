@@ -58,7 +58,11 @@ const PlaceOrder = () => {
             await clearCart(); // Use global clear cart which updates badge
 
             toast.success('Order Placed Successfully!');
-            navigate(`/order/${data._id}`);
+            if (paymentMethod === 'Cash on Delivery') {
+                navigate(`/order-success/${data._id}`);
+            } else {
+                navigate(`/order/${data._id}`);
+            }
         } catch (error) {
             toast.error('Order failed: ' + (error.response?.data?.message || error.message));
         } finally {
