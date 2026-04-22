@@ -6,25 +6,25 @@ const PromoGrid = () => {
             save: 100,
             bg: '#F5E6E0', // Beige
             priceColor: '#D4A017', // Gold
-            img: 'https://e-commerce-jh2x.onrender.com/images/Disc-Sofa.png'
+            img: 'https://cdn.prod.website-files.com/63e857eaeaf853471d5335ff/63e8c4e6cd367817e964f756_sofa-min.png'
         },
         {
             save: 29,
             bg: '#F9DCDC', // Pink
             priceColor: '#D23F57', // Red
-            img: 'https://e-commerce-jh2x.onrender.com/images/Disc-Book.png'
+            img: 'https://cdn.prod.website-files.com/63e857eaeaf853471d5335ff/63e8c4e4e006822af104db61_book-min.png'
         },
         {
             save: 67,
             bg: '#F2E4D9', // Sand
             priceColor: '#964B00', // Brown
-            img: 'https://e-commerce-jh2x.onrender.com/images/Disc-Shirt.png'
+            img: 'https://cdn.prod.website-files.com/63e857eaeaf853471d5335ff/63e8c4e61a7c20076aec5fe7_shirt-min.png'
         },
         {
             save: 59,
             bg: '#D6F8E1', // Mint
             priceColor: '#007D43', // Green
-            img: 'https://e-commerce-jh2x.onrender.com/images/Disc-BugBook.png'
+            img: 'https://cdn.prod.website-files.com/63e857eaeaf853471d5335ff/63e8c4e53f7127592743f6be_bug%20%26%20book-min.png'
         },
     ];
 

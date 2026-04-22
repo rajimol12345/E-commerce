@@ -5,12 +5,12 @@ const Categories = () => {
     const navigate = useNavigate();
 
     const categories = [
-        { name: 'Furniture', image: 'https://e-commerce-jh2x.onrender.com/images/Cat-Furniture.png', color: '#3E6553' },
-        { name: 'Hand Bag', image: 'https://e-commerce-jh2x.onrender.com/images/Cat-HandBag.png', color: '#FDB851' },
-        { name: 'Books', image: 'https://e-commerce-jh2x.onrender.com/images/Cat-Books.png', color: '#C34C41' },
-        { name: 'Tech', image: 'https://e-commerce-jh2x.onrender.com/images/Cat-Tech.png', color: '#38AE73' },
-        { name: 'Sneakers', image: 'https://e-commerce-jh2x.onrender.com/images/Cat-Sneakers.png', color: '#F498A6' },
-        { name: 'Travel', image: 'https://e-commerce-jh2x.onrender.com/images/Cat-Travel.png', color: '#FDB241' },
+        { name: 'Furniture', image: 'https://cdn.prod.website-files.com/63e857eaeaf853471d5335ff/63e8c4e570738029a725e686_Furniture-min.png', color: '#3E6553' },
+        { name: 'Hand Bag', image: 'https://cdn.prod.website-files.com/63e857eaeaf853471d5335ff/63e8c4e52d6553668075697e_hand%20bag-min.png', color: '#FDB851' },
+        { name: 'Books', image: 'https://cdn.prod.website-files.com/63e857eaeaf853471d5335ff/63e8c4e460afc22b7ea53520_books-min.png', color: '#C34C41' },
+        { name: 'Tech', image: 'https://cdn.prod.website-files.com/63e857eaeaf853471d5335ff/63e8c4e754ac2e32897cb53b_tech-min.png', color: '#38AE73' },
+        { name: 'Sneakers', image: 'https://cdn.prod.website-files.com/63e857eaeaf853471d5335ff/63e8c4e64b769118272f244f_sneakers-min.png', color: '#F498A6' },
+        { name: 'Travel', image: 'https://cdn.prod.website-files.com/63e857eaeaf853471d5335ff/63e8c4e71eb4ad6d07e7568f_travel-min.png', color: '#FDB241' },
     ];
 
     return (
