@@ -49,6 +49,8 @@ body {
   background-color: var(--color-white);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 /* Container */
@@ -260,6 +262,7 @@ p {
   top: 100%;
   left: 0;
   width: 700px;
+  max-width: 90vw;
   background: white;
   border-radius: 12px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
