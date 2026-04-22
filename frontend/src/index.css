@@ -45,9 +45,11 @@
 
 html, body {
   width: 100%;
+  min-width: 100%;
   overflow-x: hidden;
   margin: 0;
   padding: 0;
+  position: relative;
 }
 
 body {
@@ -56,6 +58,17 @@ body {
   background-color: var(--color-white);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+}
+
+/* Ensure no element can exceed screen width */
+* {
+  max-width: 100vw;
+  box-sizing: border-box;
+}
+
+/* Reset for specific elements that NEED to be larger (like carousels handled by overflow-x) */
+.hide-scrollbar, .overflow-x-auto {
+  max-width: none;
 }
 
 img, video {
@@ -317,6 +330,12 @@ p {
   transform: translateY(10px);
   transition: all 0.3s ease;
   z-index: 1001;
+}
+
+@media (max-width: 991px) {
+  .mega-menu-dropdown {
+    display: none !important;
+  }
 }
 
 .mega-menu-container:hover .mega-menu-dropdown {

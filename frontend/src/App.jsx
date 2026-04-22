@@ -26,7 +26,7 @@ const App = () => {
   return (
     <Router>
       <PayPalScriptProvider options={{ 'client-id': 'sb' }}>
-        <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', width: '100%', overflowX: 'hidden' }}>
           <Header />
           <main style={{ flex: 1 }}>
             <Routes>
