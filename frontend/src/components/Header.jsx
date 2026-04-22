@@ -1,16 +1,24 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { FaSearch, FaUser, FaShoppingCart, FaChevronDown, FaBars, FaTimes } from 'react-icons/fa';
 import TopBar from './TopBar';
 import { useCart } from '../context/CartContext';
 import './Header.css';
 
 const Header = () => {
-    const userInfo = JSON.parse(localStorage.getItem('userInfo'));
-    const { cartCount } = useCart();
+    const location = useLocation();
+    const [userInfo, setUserInfo] = useState(JSON.parse(localStorage.getItem('userInfo')));
+    const { cartCount, fetchCart } = useCart();
     const [keyword, setKeyword] = useState('');
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        setUserInfo(JSON.parse(localStorage.getItem('userInfo')));
+        if (localStorage.getItem('userInfo')) {
+            fetchCart();
+        }
+    }, [location]);
 
     const searchHandler = (e) => {
         if (e.key === 'Enter') {
@@ -95,7 +103,7 @@ const Header = () => {
                     <div className="header-right">
                         <Link to={userInfo ? "/profile" : "/login"} className="icon-link">
                             <img src="https://cdn.prod.website-files.com/63e857eaeaf853471d5335ff/63eb3dec9d6ee83660ebe1de_user.png" alt="" style={{ width: '24px' }} />
-                            <span>{userInfo ? 'Account' : 'Sign In'}</span>
+                            <span>{userInfo ? (userInfo.name?.split(' ')[0] || 'Account') : 'Sign In'}</span>
                         </Link>
                         <Link to="/wishlist" className="icon-link">
                             <img src="https://cdn.prod.website-files.com/63e857eaeaf853471d5335ff/63eb3dec4c0128bb6e2a5c6a_heart.png" alt="" style={{ width: '24px' }} />
