@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { FaHeart, FaRegHeart, FaStar } from 'react-icons/fa';
 import api from '../utils/api';
 import { useCart } from '../context/CartContext';
+import { toast } from 'react-toastify';
 
 const TabbedProducts = () => {
     const { addToCart: contextAddToCart } = useCart();
@@ -76,9 +77,9 @@ const TabbedProducts = () => {
     const handleAddToCart = async (product) => {
         try {
             await contextAddToCart(product, 1);
-            alert('Added to cart!');
+            toast.success('Added to cart!');
         } catch (error) {
-            alert('Failed to add to cart');
+            toast.error('Failed to add to cart');
         }
     };
 

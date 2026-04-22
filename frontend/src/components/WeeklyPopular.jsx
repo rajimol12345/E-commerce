@@ -4,6 +4,7 @@ import { FaHeart, FaRegHeart, FaStar, FaShoppingCart } from 'react-icons/fa';
 import api from '../utils/api';
 import { motion } from 'framer-motion';
 import { useCart } from '../context/CartContext';
+import { toast } from 'react-toastify';
 
 const WeeklyPopular = () => {
     const { addToCart: contextAddToCart } = useCart();
@@ -57,9 +58,9 @@ const WeeklyPopular = () => {
     const handleAddToCart = async (product) => {
         try {
             await contextAddToCart(product, 1);
-            alert('Added to cart!');
+            toast.success('Added to cart!');
         } catch (error) {
-            alert('Failed to add to cart');
+            toast.error('Failed to add to cart');
         }
     };
 

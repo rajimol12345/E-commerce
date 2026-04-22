@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import api from '../utils/api';
 import { FaHeart, FaTrash, FaShoppingCart, FaArrowLeft } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+import { toast } from 'react-toastify';
 
 const Wishlist = () => {
     const [wishlistItems, setWishlistItems] = useState([]);
@@ -45,9 +46,9 @@ const Wishlist = () => {
                 productId: product._id,
                 qty: 1
             });
-            alert('Added to cart!');
+            toast.success('Added to cart!');
         } catch (error) {
-            alert('Failed to add to cart: ' + (error.response?.data?.message || 'Server error'));
+            toast.error('Failed to add to cart: ' + (error.response?.data?.message || 'Server error'));
         }
     };
 

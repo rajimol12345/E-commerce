@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaHeart, FaRegHeart, FaStar } from 'react-icons/fa';
+import { toast } from 'react-toastify';
 import api from '../utils/api';
 import { useCart } from '../context/CartContext';
 
@@ -15,9 +16,9 @@ const ProductCard = ({ product }) => {
         e.stopPropagation();
         try {
             await addToCart(product, 1);
-            alert('Added to cart!');
-        } catch (error) {
-            alert('Failed to add to cart');
+            toast.success('Added to cart!');
+        } catch {
+            toast.error('Failed to add to cart');
         }
     };
 

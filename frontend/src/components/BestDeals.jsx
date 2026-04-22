@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FaHeart, FaRegHeart, FaStar } from 'react-icons/fa';
+import { toast } from 'react-toastify';
 import api from '../utils/api';
 import { useCart } from '../context/CartContext';
 
@@ -55,11 +56,11 @@ const BestDeals = () => {
     const handleAddToCart = async (product) => {
         try {
             await contextAddToCart(product, 1);
-            alert('Added to cart!');
-        } catch (error) {
-            alert('Failed to add to cart');
+            toast.success('Added to cart!');
+        } catch {
+            toast.error('Failed to add to cart');
         }
-    };
+        };
 
     return (
         <section style={{

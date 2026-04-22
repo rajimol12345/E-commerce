@@ -4,6 +4,7 @@ import api from '../utils/api';
 import { FaTrash, FaArrowLeft, FaMinus, FaPlus, FaShoppingBag } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { useCart } from '../context/CartContext';
+import { toast } from 'react-toastify';
 
 const Cart = () => {
     const {
@@ -41,7 +42,7 @@ const Cart = () => {
         try {
             await removeFromCart(id);
         } catch (error) {
-            alert('Failed to remove item');
+            toast.error('Failed to remove item');
         }
     };
 

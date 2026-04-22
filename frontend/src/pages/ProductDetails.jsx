@@ -4,6 +4,7 @@ import api from '../utils/api';
 import { FaStar, FaShoppingCart, FaTruck, FaUndo, FaPlus, FaMinus } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { useCart } from '../context/CartContext';
+import { toast } from 'react-toastify';
 
 const ProductDetails = () => {
     const { id } = useParams();
@@ -16,9 +17,9 @@ const ProductDetails = () => {
     const handleAddToCart = async () => {
         try {
             await addToCart(id, qty);
-            alert('Added to cart!');
+            toast.success('Added to cart!');
         } catch (error) {
-            alert('Failed to add to cart');
+            toast.error('Failed to add to cart');
         }
     };
 

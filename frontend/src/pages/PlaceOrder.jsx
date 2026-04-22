@@ -4,6 +4,7 @@ import api from '../utils/api';
 import { FaMapMarkerAlt, FaCreditCard, FaShoppingBag, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { useCart } from '../context/CartContext';
+import { toast } from 'react-toastify';
 
 const PlaceOrder = () => {
     const navigate = useNavigate();
@@ -34,7 +35,7 @@ const PlaceOrder = () => {
 
     const placeOrderHandler = async () => {
         if (cartItems.length === 0) {
-            alert('Your cart is empty');
+            toast.error('Your cart is empty');
             return;
         }
 
@@ -56,10 +57,10 @@ const PlaceOrder = () => {
             const { data } = await api.post('/orders', orderData);
             await clearCart(); // Use global clear cart which updates badge
 
-            alert('Order Placed Successfully!');
+            toast.success('Order Placed Successfully!');
             navigate(`/order/${data._id}`);
         } catch (error) {
-            alert('Order failed: ' + (error.response?.data?.message || error.message));
+            toast.error('Order failed: ' + (error.response?.data?.message || error.message));
         } finally {
             setLoading(false);
         }
