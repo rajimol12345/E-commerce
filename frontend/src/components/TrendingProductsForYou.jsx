@@ -36,7 +36,7 @@ const TrendingProductsForYou = () => {
 
                 <div style={{
                     display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(500px, 1fr))',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
                     gap: '32px'
                 }}>
                     {items.map((item) => (
@@ -45,6 +45,7 @@ const TrendingProductsForYou = () => {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
+                            className="trending-for-you-card"
                             style={{
                                 backgroundColor: item.bgColor,
                                 borderRadius: '24px',
@@ -99,6 +100,13 @@ const TrendingProductsForYou = () => {
                     ))}
                 </div>
             </div>
+            <style>{`
+                @media (max-width: 768px) {
+                    .trending-for-you-card img {
+                        height: 250px !important;
+                    }
+                }
+            `}</style>
         </section>
     );
 };
