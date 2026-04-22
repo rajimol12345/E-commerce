@@ -40,19 +40,17 @@ const Register = () => {
     };
 
     return (
-        <div style={{ display: 'flex', height: '100vh', width: '100vw', overflow: 'hidden' }}>
+        <div className="login-container" style={{ display: 'flex', minHeight: '100vh', width: '100%' }}>
 
             {/* Left Side - Image */}
             <motion.div
                 initial={{ x: -50, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ duration: 0.6 }}
+                className="login-image-side"
                 style={{
-                    flex: '1',
-                    display: 'none',
-                    '@media (min-width: 768px)': { display: 'block' }
+                    flex: '1'
                 }}
-                className="desktop-only-image"
             >
                 <div style={{
                     width: '100%',

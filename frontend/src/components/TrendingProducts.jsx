@@ -77,29 +77,48 @@ const TrendingProducts = () => {
 
                 <div style={{
                     display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(450px, 1fr))',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
                     gap: '32px'
                 }}>
                     {cards.map(item => (
                         <Link
                             key={item.id}
                             to={item.link}
+                            className="trending-card"
                             style={{
                                 textDecoration: 'none',
-                                position: 'relative', // Text overlay if needed, or side by side
-                                // Muse reference often has text overlay or text ON the image background.
-                                // Let's try the "Card with Text Overlay" style but cleaner.
+                                position: 'relative',
                                 borderRadius: '24px',
                                 overflow: 'hidden',
                                 height: '320px',
                                 backgroundColor: item.bgColor,
-                                display: 'flex', // Flex to position image and text
-                                flexDirection: 'row', // Horizontal layout within card? No, usually image is bg or main feature.
+                                display: 'flex',
                                 justifyContent: 'space-between',
                                 alignItems: 'center',
                                 padding: '40px',
                                 transition: 'transform 0.3s ease, box-shadow 0.3s ease'
                             }}
+...
+                                />
+                            </div>
+                        </Link>
+                    ))}
+                </div>
+            </div>
+            <style>{`
+                @media (max-width: 480px) {
+                    .trending-card {
+                        padding: 30px 20px !important;
+                        height: 280px !important;
+                    }
+                    .trending-card h3 {
+                        font-size: 20px !important;
+                    }
+                    .trending-card p {
+                        font-size: 14px !important;
+                    }
+                }
+            `}</style>
                             onMouseEnter={(e) => {
                                 e.currentTarget.style.transform = 'translateY(-5px)';
                                 e.currentTarget.style.boxShadow = '0 20px 40px rgba(0,0,0,0.08)';

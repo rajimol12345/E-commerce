@@ -17,7 +17,7 @@ const Brands = () => {
             <div className="container">
                 <h2 style={{ fontSize: '24px', fontWeight: '700', marginBottom: '40px', color: '#231F1E' }}>Choose By Brand</h2>
 
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '24px' }}>
+                <div className="grid-4">
                     {brands.map((brand, index) => (
                         <div
                             key={index}
