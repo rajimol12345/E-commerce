@@ -4,14 +4,11 @@ const Footer = () => {
     return (
         <footer style={{ backgroundColor: 'white', padding: '80px 0 40px', marginTop: 'auto', borderTop: '1px solid #E5E5E5' }}>
             <div className="container">
-                <div style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(5, 1fr)',
-                    gap: '40px',
+                <div className="grid-5" style={{
                     marginBottom: '60px'
                 }}>
                     {/* Column 1: Brand & Payments */}
-                    <div style={{ paddingRight: '20px' }}>
+                    <div className="footer-col-brand" style={{ paddingRight: '20px' }}>
                         <a href="/" style={{ textDecoration: 'none', display: 'inline-block', marginBottom: '24px' }}>
                             <img src="https://cdn.prod.website-files.com/63e857eaeaf853471d5335ff/63e86ab4c21faa7bc0bd90dd_Logo.svg" alt="Shopcart" style={{ height: '35px' }} />
                         </a>
@@ -34,7 +31,7 @@ const Footer = () => {
                         }}>
                             Accepted Payments
                         </h5>
-                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '12px', maxWidth: '320px' }}>
+                        <div className="payment-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '12px', maxWidth: '320px' }}>
                             {[
                                 // Row 1
                                 'https://cdn.prod.website-files.com/63e857eaeaf853471d5335ff/63eb1ce8816711ebecac46d8_stripe.png',
@@ -105,19 +102,8 @@ const Footer = () => {
                 </div>
 
                 {/* Bottom Bar */}
-                <div style={{
-                    borderTop: '1px solid #E5E5E5',
-                    paddingTop: '30px',
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    flexWrap: 'wrap',
-                    gap: '20px',
-                    fontSize: '15px',
-                    color: 'var(--color-dark)',
-                    fontWeight: '600'
-                }}>
-                    <div style={{ display: 'flex', gap: '30px', alignItems: 'center' }}>
+                <div className="footer-bottom">
+                    <div className="footer-bottom-links">
                         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                             <img src="https://cdn.prod.website-files.com/63e857eaeaf853471d5335ff/63eb0ed6e927bdf5bc4309e0_briefcase.svg" alt="" style={{ width: '22px' }} />
                             <span>Become Seller</span>
@@ -137,7 +123,7 @@ const Footer = () => {
                         <a href="#" style={{ color: 'inherit', textDecoration: 'none' }}>Privacy & Policy</a>
                     </div>
 
-                    <div style={{ opacity: 0.8, fontSize: '14px' }}>
+                    <div className="footer-copyright">
                         All Right reserved by Musemind <span style={{ textDecoration: 'underline', cursor: 'pointer' }}>ui/ux design</span> agency | 2022
                     </div>
                 </div>
@@ -159,6 +145,48 @@ const Footer = () => {
                     color: var(--color-primary); 
                     opacity: 1;
                     transform: translateX(3px);
+                }
+                .footer-bottom {
+                    border-top: 1px solid #E5E5E5;
+                    padding-top: 30px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    gap: 20px;
+                    fontSize: 15px;
+                    color: var(--color-dark);
+                    font-weight: 600;
+                }
+                .footer-bottom-links {
+                    display: flex;
+                    gap: 30px;
+                    align-items: center;
+                }
+                @media (max-width: 1024px) {
+                    .footer-col-brand {
+                        grid-column: span 3;
+                        padding-right: 0;
+                        margin-bottom: 20px;
+                    }
+                }
+                @media (max-width: 768px) {
+                    .footer-col-brand {
+                        grid-column: span 2;
+                    }
+                    .footer-bottom {
+                        flex-direction: column;
+                        text-align: center;
+                    }
+                    .footer-bottom-links {
+                        flex-direction: column;
+                        gap: 15px;
+                    }
+                }
+                @media (max-width: 480px) {
+                    .footer-col-brand {
+                        grid-column: span 1;
+                    }
                 }
             `}</style>
         </footer>

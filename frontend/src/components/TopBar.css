@@ -1,0 +1,48 @@
+.top-bar {
+    background-color: #003D29;
+    color: white;
+    font-size: 13px;
+    padding: 12px 0;
+    font-weight: 500;
+}
+
+.top-bar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-bar-left, .top-bar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.top-bar-right {
+    gap: 30px;
+}
+
+.top-bar-dropdown {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .top-bar-center {
+        display: none;
+    }
+    .top-bar-right {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .top-bar-left {
+        display: none;
+    }
+    .top-bar-content {
+        justify-content: flex-end;
+    }
+}

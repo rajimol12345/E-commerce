@@ -66,19 +66,19 @@ const WeeklyPopular = () => {
     return (
         <section style={{ padding: '100px 0', backgroundColor: '#FFFFFF' }}>
             <div className="container">
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '50px' }}>
+                <div className="flex-mobile-col" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', gap: '20px', marginBottom: '50px' }}>
                     <div>
                         <h2 style={{ fontSize: '36px', fontWeight: '800', color: '#111827', marginBottom: '12px' }}>Weekly Popular Products</h2>
                         <p style={{ color: '#6B7280', fontSize: '16px', margin: 0 }}>Discover what everyone else is loving this week</p>
                     </div>
-                    <Link to="/shop" style={{ color: '#003D29', fontWeight: '700', textDecoration: 'none', borderBottom: '2px solid #003D29', paddingBottom: '4px' }}>
+                    <Link to="/shop" style={{ color: '#003D29', fontWeight: '700', textDecoration: 'none', borderBottom: '2px solid #003D29', paddingBottom: '4px', whiteSpace: 'nowrap' }}>
                         View All Products
                     </Link>
                 </div>
 
                 <div style={{
                     display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fill, minmax(360px, 1fr))',
+                    gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
                     gap: '30px'
                 }}>
                     {products.map((product, index) => (

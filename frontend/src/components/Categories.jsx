@@ -18,7 +18,7 @@ const Categories = () => {
             <div className="container">
                 <h2 style={{ marginBottom: '40px', fontSize: '24px', fontWeight: '700' }}>Shop Our Top Categories</h2>
 
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: '24px' }}>
+                <div className="grid-6">
                     {categories.map((cat, index) => (
                         <div
                             key={index}

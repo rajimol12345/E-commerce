@@ -42,19 +42,17 @@ const Login = () => {
     };
 
     return (
-        <div style={{ display: 'flex', height: '100vh', width: '100vw', overflow: 'hidden' }}>
+        <div className="login-container" style={{ display: 'flex', minHeight: '100vh', width: '100%' }}>
 
             {/* Left Side - Image */}
             <motion.div
                 initial={{ x: -50, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ duration: 0.6 }}
+                className="login-image-side"
                 style={{
-                    flex: '1',
-                    display: 'none',
-                    '@media (min-width: 768px)': { display: 'block' } // Handled via CSS usually, but here relying on flex behavior or inline logic
+                    flex: '1'
                 }}
-                className="desktop-only-image" // Helper class if needed, or inline style check
             >
                 <div style={{
                     width: '100%',
@@ -185,7 +183,7 @@ const Login = () => {
             {/* Inline Media Query to hide text/image on very small screens if necessary */}
             <style>{`
                 @media (max-width: 900px) {
-                    .desktop-only-image {
+                    .login-image-side {
                         display: none !important;
                     }
                 }

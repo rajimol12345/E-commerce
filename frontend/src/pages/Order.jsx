@@ -160,7 +160,7 @@ const Order = () => {
                         </div>
 
                         {/* Order Status Cards */}
-                        <div style={{ display: 'flex', gap: '20px', marginBottom: '40px' }}>
+                        <div className="flex-mobile-col" style={{ display: 'flex', gap: '20px', marginBottom: '40px' }}>
                             <div style={{ flex: 1, backgroundColor: 'white', padding: '24px', borderRadius: '24px', boxShadow: '0 4px 12px rgba(0,0,0,0.03)' }}>
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
                                     <div style={{ backgroundColor: '#EEF2FF', padding: '10px', borderRadius: '12px' }}><FaTruck color="#4F46E5" /></div>

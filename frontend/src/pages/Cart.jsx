@@ -16,6 +16,11 @@ const Cart = () => {
     const navigate = useNavigate();
     const [subtotal, setSubtotal] = useState(0);
 
+    const calculateSubtotal = (items) => {
+        const total = items.reduce((acc, item) => acc + item.qty * item.price, 0);
+        setSubtotal(total);
+    };
+
     useEffect(() => {
         fetchCart();
     }, []);
@@ -24,11 +29,6 @@ const Cart = () => {
         setCartItems(contextCartItems);
         calculateSubtotal(contextCartItems);
     }, [contextCartItems]);
-
-    const calculateSubtotal = (items) => {
-        const total = items.reduce((acc, item) => acc + item.qty * item.price, 0);
-        setSubtotal(total);
-    };
 
     const updateQtyHandler = (id, currentQty, delta) => {
         const newQty = currentQty + delta;
@@ -98,19 +98,21 @@ const Cart = () => {
                         </Link>
                     </motion.div>
                 ) : (
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(700px, 1fr))', gap: '40px' }}>
+                    <div className="cart-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '40px' }}>
 
                         {/* Cart Items List */}
                         <motion.div
                             variants={containerVariants}
                             initial="hidden"
                             animate="visible"
+                            className="cart-items-container"
                             style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}
                         >
                             {cartItems.map((item) => (
                                 <motion.div
                                     key={item.product}
                                     variants={itemVariants}
+                                    className="cart-item"
                                     style={{
                                         display: 'flex',
                                         alignItems: 'center',
@@ -256,3 +258,22 @@ const Cart = () => {
 };
 
 export default Cart;
+
+const cartStyles = `
+@media (max-width: 768px) {
+    .cart-item {
+        flex-direction: column !important;
+        text-align: center;
+        padding: 20px !important;
+    }
+    .cart-item-actions {
+        width: 100%;
+        justify-content: center;
+        gap: 20px !important;
+    }
+}
+`;
+
+const styleTag = document.createElement('style');
+styleTag.innerHTML = cartStyles;
+document.head.appendChild(styleTag);

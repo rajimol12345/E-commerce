@@ -47,24 +47,25 @@ const ProductDetails = () => {
     );
 
     return (
-        <div style={{ padding: '80px 0', backgroundColor: '#FFFFFF' }}>
-            <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '80px', alignItems: 'start' }}>
+        <div style={{ padding: '40px 0', backgroundColor: '#FFFFFF' }}>
+            <div className="container" style={{ maxWidth: '1200px', margin: '0 auto' }}>
+                <div className="product-details-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '40px', alignItems: 'start' }}>
 
                     {/* Left Column: Image Area */}
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.6 }}
+                        className="product-image-container"
                         style={{
                             backgroundColor: '#F5F5F7',
                             borderRadius: '32px',
-                            padding: '60px',
+                            padding: '40px',
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
                             position: 'relative',
-                            minHeight: '500px'
+                            minHeight: '400px'
                         }}
                     >
                         <motion.img
@@ -75,9 +76,9 @@ const ProductDetails = () => {
                             transition={{ delay: 0.2, duration: 0.5 }}
                             style={{
                                 maxWidth: '100%',
-                                maxHeight: '450px',
+                                maxHeight: '400px',
                                 objectFit: 'contain',
-                                mixBlendMode: 'multiply' // Helps if image has white bg
+                                mixBlendMode: 'multiply'
                             }}
                         />
                     </motion.div>
@@ -87,9 +88,10 @@ const ProductDetails = () => {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.1 }}
+                        className="product-info-container"
                     >
-                        <h1 style={{
-                            fontSize: '48px',
+                        <h1 className="product-title" style={{
+                            fontSize: '40px',
                             fontWeight: '800',
                             color: '#231F1E',
                             marginBottom: '16px',
@@ -98,12 +100,12 @@ const ProductDetails = () => {
                             {product.name}
                         </h1>
 
-                        <p style={{
+                        <p className="product-desc" style={{
                             fontSize: '18px',
                             color: '#5F6C72',
                             marginBottom: '24px',
                             lineHeight: '1.6',
-                            maxWidth: '90%'
+                            maxWidth: '100%'
                         }}>
                             {product.description}
                         </p>
@@ -128,12 +130,14 @@ const ProductDetails = () => {
                             marginBottom: '32px',
                             display: 'flex',
                             alignItems: 'center',
-                            justifyContent: 'space-between'
+                            justifyContent: 'space-between',
+                            flexWrap: 'wrap',
+                            gap: '15px'
                         }}>
                             <h2 style={{
-                                fontSize: '42px',
+                                fontSize: '36px',
                                 fontWeight: '700',
-                                color: '#0A6847', // Deep Green
+                                color: '#0A6847',
                                 margin: 0
                             }}>
                                 ${product.price ? product.price.toFixed(2) : '0.00'}
@@ -164,7 +168,7 @@ const ProductDetails = () => {
                         </div>
 
                         {/* Actions Row */}
-                        <div style={{ display: 'flex', gap: '24px', marginBottom: '40px', flexWrap: 'wrap' }}>
+                        <div style={{ display: 'flex', gap: '20px', marginBottom: '40px', flexWrap: 'wrap' }}>
                             {/* Quantity Counter */}
                             <div style={{
                                 backgroundColor: '#F5F6F8',
@@ -203,15 +207,14 @@ const ProductDetails = () => {
                             <motion.button
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
-                                onClick={() => navigate('/shipping')} // Buy Now
+                                onClick={() => navigate('/shipping')}
                                 className="btn btn-primary"
                                 style={{
-                                    padding: '16px 40px',
+                                    padding: '16px 30px',
                                     fontSize: '16px',
                                     borderRadius: '50px',
                                     backgroundColor: '#003D29',
-                                    flex: 1,
-                                    maxWidth: '220px'
+                                    flex: '1 1 150px'
                                 }}
                             >
                                 Buy Now
@@ -222,18 +225,16 @@ const ProductDetails = () => {
                                 onClick={handleAddToCart}
                                 className="btn btn-outline"
                                 style={{
-                                    padding: '16px 40px',
+                                    padding: '16px 30px',
                                     fontSize: '16px',
                                     borderRadius: '50px',
                                     border: '2px solid #003D29',
                                     color: '#003D29',
-                                    paddingRight: '20px',
                                     display: 'flex',
                                     alignItems: 'center',
                                     justifyContent: 'center',
                                     gap: '8px',
-                                    flex: 1,
-                                    maxWidth: '220px'
+                                    flex: '1 1 150px'
                                 }}
                             >
                                 <FaShoppingCart size={18} /> Add to Cart
@@ -241,33 +242,33 @@ const ProductDetails = () => {
                         </div>
 
                         {/* Delivery Info */}
-                        <div style={{ display: 'grid', gap: '24px' }}>
-                            <div style={{ display: 'flex', gap: '20px', alignItems: 'start', padding: '24px', backgroundColor: '#FFFFFF', border: '1px solid #E6E8EC', borderRadius: '16px' }}>
+                        <div style={{ display: 'grid', gap: '20px' }}>
+                            <div style={{ display: 'flex', gap: '20px', alignItems: 'start', padding: '20px', backgroundColor: '#FFFFFF', border: '1px solid #E6E8EC', borderRadius: '16px' }}>
                                 <div style={{
-                                    width: '48px', height: '48px',
-                                    borderRadius: '12px', backgroundColor: '#FFF4E5',
+                                    width: '40px', height: '40px', flexShrink: 0,
+                                    borderRadius: '10px', backgroundColor: '#FFF4E5',
                                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                                     color: '#FFA500'
                                 }}>
-                                    <FaTruck size={24} />
+                                    <FaTruck size={20} />
                                 </div>
                                 <div>
-                                    <h4 style={{ fontSize: '18px', fontWeight: '700', marginBottom: '8px', color: '#231F1E' }}>Free Delivery</h4>
-                                    <p style={{ fontSize: '14px', color: '#5F6C72', margin: 0 }}>Enter your postal code for delivery availability</p>
+                                    <h4 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '4px', color: '#231F1E' }}>Free Delivery</h4>
+                                    <p style={{ fontSize: '13px', color: '#5F6C72', margin: 0 }}>Enter your postal code for availability</p>
                                 </div>
                             </div>
-                            <div style={{ display: 'flex', gap: '20px', alignItems: 'start', padding: '24px', backgroundColor: '#FFFFFF', border: '1px solid #E6E8EC', borderRadius: '16px' }}>
+                            <div style={{ display: 'flex', gap: '20px', alignItems: 'start', padding: '20px', backgroundColor: '#FFFFFF', border: '1px solid #E6E8EC', borderRadius: '16px' }}>
                                 <div style={{
-                                    width: '48px', height: '48px',
-                                    borderRadius: '12px', backgroundColor: '#FFF4E5',
+                                    width: '40px', height: '40px', flexShrink: 0,
+                                    borderRadius: '10px', backgroundColor: '#FFF4E5',
                                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                                     color: '#FFA500'
                                 }}>
-                                    <FaUndo size={24} />
+                                    <FaUndo size={20} />
                                 </div>
                                 <div>
-                                    <h4 style={{ fontSize: '18px', fontWeight: '700', marginBottom: '8px', color: '#231F1E' }}>Return Delivery</h4>
-                                    <p style={{ fontSize: '14px', color: '#5F6C72', margin: 0 }}>Free 30 days delivery returns. Details here</p>
+                                    <h4 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '4px', color: '#231F1E' }}>Return Delivery</h4>
+                                    <p style={{ fontSize: '13px', color: '#5F6C72', margin: 0 }}>Free 30 days delivery returns</p>
                                 </div>
                             </div>
                         </div>
@@ -275,6 +276,17 @@ const ProductDetails = () => {
                     </motion.div>
                 </div>
             </div>
+            <style>{`
+                @media (max-width: 768px) {
+                    .product-title {
+                        font-size: 32px !important;
+                    }
+                    .product-image-container {
+                        padding: 20px !important;
+                        min-height: 300px !important;
+                    }
+                }
+            `}</style>
         </div>
     );
 };

@@ -111,11 +111,11 @@ const Shop = () => {
                 </div>
             </div>
 
-            <div className="container" style={{ paddingTop: '60px', display: 'flex', gap: '50px' }}>
-                <aside style={{ width: '260px', flexShrink: 0 }}>
+            <div className="container shop-layout" style={{ paddingTop: '60px', display: 'flex', gap: '50px' }}>
+                <aside className="shop-sidebar" style={{ width: '260px', flexShrink: 0 }}>
                     <div style={{ marginBottom: '40px' }}>
                         <h3 style={{ fontSize: '18px', fontWeight: '700', marginBottom: '20px', color: '#231F1E' }}>Category</h3>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                        <div className="category-list" style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                             <button style={{
                                 background: 'transparent',
                                 border: 'none',
@@ -151,7 +151,7 @@ const Shop = () => {
 
                     <div style={{ marginBottom: '40px' }}>
                         <h3 style={{ fontSize: '18px', fontWeight: '700', marginBottom: '20px', color: '#231F1E' }}>Price Range</h3>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                        <div className="price-list" style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                             {prices.map(price => (
                                 <label key={price} style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '16px', color: '#5F6C72', cursor: 'pointer' }}>
                                     <input
@@ -167,8 +167,8 @@ const Shop = () => {
                     </div>
                 </aside>
 
-                <div style={{ flex: 1 }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '30px' }}>
+                <div className="shop-content" style={{ flex: 1 }}>
+                    <div className="shop-controls" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '30px', flexWrap: 'wrap', gap: '15px' }}>
                         <p style={{ color: '#777E90', fontWeight: '500' }}>
                             Showing {products.length} products
                         </p>
@@ -209,6 +209,27 @@ const Shop = () => {
                     )}
                 </div>
             </div>
+            <style>{`
+                @media (max-width: 768px) {
+                    .shop-layout {
+                        flex-direction: column;
+                    }
+                    .shop-sidebar {
+                        width: 100% !important;
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 30px;
+                        border-bottom: 1px solid #E5E5E5;
+                        padding-bottom: 30px;
+                        margin-bottom: 30px;
+                    }
+                    .shop-sidebar > div {
+                        flex: 1;
+                        min-width: 200px;
+                        margin-bottom: 0 !important;
+                    }
+                }
+            `}</style>
         </div>
     );
 };
